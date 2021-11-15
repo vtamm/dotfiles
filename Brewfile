@@ -1,59 +1,102 @@
+# Taps
+tap 'homebrew/cask'
+tap 'homebrew/cask-fonts'
+tap 'homebrew/cask-versions'
+tap 'homebrew/bundle'
+tap 'nicoverbruggen/homebrew-cask'
+
 # Binaries
-brew 'coreutils'
+brew 'awscli'
+brew 'bash' # Latest Bash version
+brew 'coreutils' # Those that come with macOS are outdated
+brew 'ffmpeg'
+brew 'gh'
 brew 'git'
+brew 'gnupg'
 brew 'grep'
+brew 'httpie'
+brew 'hub'
 brew 'mackup'
 brew 'mas' # Mac App Store manager
-brew 'z'
+brew 'pkg-config' # https://github.com/driesvints/dotfiles/issues/20
+brew 'stripe/stripe-cli/stripe'
+brew 'stripe/stripe-mock/stripe-mock'
+brew 'svn'
+brew 'trash' # Manage the Trash bin
+brew 'tree' # List directories in a tree structure
+brew 'zlib' # Needed for Memcached
+
+# Spatie Medialibrary
+brew 'jpegoptim'
+brew 'optipng'
+brew 'pngquant'
+brew 'svgo'
+brew 'gifsicle'
 
 # Development
 brew 'php'
+brew 'php@7.4'
 brew 'composer'
+brew 'imagemagick'
+brew 'libmemcached'
+brew 'meilisearch'
+brew 'memcached'
 brew 'mysql'
 brew 'nginx'
 brew 'node'
+brew 'redis'
+brew 'yarn'
 
 # Apps
 cask '1password'
-cask '1password-cli'
-cask 'adobe-creative-cloud'
-cask 'alfred'
-cask 'bettertouchtool'
-cask 'calibre'
+cask 'caffeine'
+cask 'dbngin'
+cask 'discord'
 cask 'docker'
-cask 'dropbox'
-cask 'finicky'
+cask 'figma'
 cask 'firefox'
-cask 'firefox-developer-edition'
+cask 'github'
 cask 'google-chrome'
-cask 'iterm2'
-cask 'macdown'
-cask 'microsoft-teams'
+cask 'google-drive'
+cask 'gpg-suite'
+cask 'imageoptim'
+cask 'insomnia'
+cask 'pastebot'
+cask 'phpmon'
 cask 'phpstorm'
-cask 'plex'
+cask 'ray'
 cask 'screenflow'
-cask 'sequel-ace'
-cask 'skype'
+cask 'signal'
 cask 'slack'
-cask 'sourcetree'
-cask 'spotify'
-cask 'sublime-text'
-cask 'telegram'
-cask 'textexpander'
+cask 'tableplus'
+cask 'telegram-desktop'
 cask 'the-unarchiver'
+cask 'tinkerwell'
 cask 'transmit'
-cask 'whatsapp'
+cask 'tunnelbear'
+cask 'tuple'
+cask 'visual-studio-code'
+cask 'zoom'
 
 # Quicklook
-cask 'qlcolorcode'
 cask 'qlmarkdown'
 cask 'quicklook-json'
-cask 'quicklook-csv'
+
+# Fonts
+cask 'font-lato'
+cask 'font-open-sans'
+cask 'font-roboto'
+cask 'font-source-code-pro-for-powerline'
+cask 'font-source-code-pro'
+cask 'font-source-sans-pro'
+cask 'font-source-serif-pro'
 
 # Mac App Store
-mas 'Deliveries', id: 290986013
-mas 'Harvest', id: 506189836
-mas 'Hidden Bar', id: 1452453066
+mas 'Byword', id: 420212497
+mas 'Giphy Capture', id: 668208984
 mas 'Keynote', id: 409183694
+mas 'Numbers', id: 409203825
+mas 'Spark', id: 1176895641
+mas 'Speedtest', id: 1153157709
 mas 'Things', id: 904280696
-mas 'LiveReload', id: 482898991
+mas 'Tweetbot', id: 1384080005
