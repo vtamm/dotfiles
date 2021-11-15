@@ -11,4 +11,3 @@ git clone git@github.com:vtamm/spacelebration.git $SITES/spacelebration
 
 # Causality Agency
 git clone git@github.com:mobile-interaction/esf.git $SITES/esf
-git clone git@bitbucket.org:fitnessplayer/music_web.git $SITES/fitnessplayer
