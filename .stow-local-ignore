@@ -1,0 +1,12 @@
+\.DS_Store
+\.idea
+\.git
+\.gitignore
+\.gitmodules
+^/README.*
+^/LICENSE.*
+
+Brewfile
+
+aliases.sh
+install.sh

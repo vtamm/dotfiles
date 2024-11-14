@@ -1,90 +1,66 @@
-# Taps
-tap 'homebrew/cask'
-tap 'homebrew/cask-fonts'
-tap 'homebrew/cask-versions'
-tap 'homebrew/bundle'
-tap 'nicoverbruggen/homebrew-cask'
+tap "1password/tap"
+tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
+tap "homebrew/services"
+tap "jandedobbeleer/oh-my-posh"
 
-# Binaries
-brew 'bash' # Latest Bash version
-brew 'coreutils' # Those that come with macOS are outdated
-brew 'curl'
-brew 'ffmpeg'
-brew 'git'
-brew 'grep'
-brew 'httpie'
-brew 'mackup'
-brew 'mas' # Mac App Store manager
-brew 'pkg-config' # https://github.com/driesvints/dotfiles/issues/20
-brew 'trash' # Manage the Trash bin
-brew 'tree' # List directories in a tree structure
-brew 'wp-cli'
-brew 'z'
+brew "bat"
+brew "coreutils"
+brew "curl"
+brew "dnsmasq"
+brew "eza"
+brew "fzf"
+brew "git"
+brew "gnupg"
+brew "grep"
+brew "lazygit"
+brew "lsd"
+brew "mas"
+brew "neovim"
+brew "nvm"
+brew "oh-my-posh"
+brew "pkg-config"
+brew "rsync"
+brew "stow"
+brew "tmux"
+brew "tree"
+brew "zoxide"
+brew "zsh"
+brew "jandedobbeleer/oh-my-posh/oh-my-posh", link: false
 
-# Development
-brew 'php'
-brew 'php@7.4'
-brew 'composer'
-brew 'imagemagick'
-brew 'libmemcached'
-brew 'memcached'
-brew 'mysql'
-brew 'nginx'
-brew 'node'
-brew 'yarn'
-
-# Apps
-cask '1password'
-cask 'adobe-creative-cloud'
-cask 'affinity-photo'
-cask 'alfred'
-cask 'bettertouchtool'
-cask 'calibre'
-cask 'daisydisk'
-cask 'discord'
-cask 'docker'
-cask 'dropbox'
-cask 'firefox'
-cask 'firefox-developer-edition'
-cask 'google-chrome'
-cask 'hazel'
-cask 'imazing'
-cask 'iterm2'
-cask 'macdown'
-cask 'microsoft-teams'
-cask 'phpstorm'
-cask 'plex'
-cask 'screenflow'
-cask 'slack'
-cask 'sequel-ace'
-cask 'spotify'
-cask 'telegram'
-cask 'the-unarchiver'
-cask 'transmit'
-cask 'vagrant'
-cask 'virtualbox'
-cask 'wireguard'
-cask 'zoom'
-
-# Quicklook
-cask 'qlmarkdown'
-cask 'quicklook-json'
-
-# Fonts
-cask 'font-lato'
-cask 'font-open-sans'
-cask 'font-roboto'
-cask 'font-source-code-pro-for-powerline'
-cask 'font-source-code-pro'
-cask 'font-source-sans-pro'
-cask 'font-source-serif-pro'
+cask "1password"
+cask "1password-cli"
+cask "adobe-creative-cloud"
+cask "affinity-photo"
+cask "alacritty"
+cask "alfred"
+cask "bettertouchtool"
+cask "bruno"
+cask "daisydisk"
+cask "discord"
+cask "firefox@developer-edition"
+cask "font-hack-nerd-font"
+cask "font-lato"
+cask "font-open-sans"
+cask "font-roboto"
+cask "font-source-code-pro"
+cask "font-source-code-pro-for-powerline"
+cask "font-source-sans-pro"
+cask "font-source-serif-pro"
+cask "google-chrome"
+cask "microsoft-teams"
+cask "phpstorm"
+cask "sequel-ace"
+cask "slack"
+cask "synology-drive"
+cask "telegram"
+cask "transmit"
+cask "ubersicht"
 
 # Mac App Store
-mas 'Calca', id: 635758264
-mas 'Harvest', id: 506189836
-mas 'Keynote', id: 409183694
-mas 'Microsoft Remote Desktop', id: 1295203466
-mas 'Parcel', id: 639968404
-mas 'Things', id: 904280696
-mas 'Telegram', id: 747648890
-mas 'WireGuard', id: 1451685025
+mas "Calca", id: 635758264
+mas "Harvest", id: 506189836
+mas "Microsoft Remote Desktop", id: 1295203466
+mas "Things", id: 904280696
+mas "Velja", id: 1607635845
+mas "WireGuard", id: 1451685025

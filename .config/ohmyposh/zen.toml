@@ -1,0 +1,158 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+final_space = true
+console_title_template = 'in {{ .Folder }}'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'plain'
+    background = 'transparent'
+    foreground = 'blue'
+    template = '{{ .Path }}'
+
+    [blocks.segments.properties]
+      style = 'full'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'plain'
+    foreground = 'p:grey'
+    background = 'transparent'
+    template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>'
+
+    [blocks.segments.properties]
+      branch_icon = ''
+      commit_icon = '@'
+      fetch_status = true
+
+[[blocks]]
+  type = 'rprompt'
+
+  [[blocks.segments]]
+    type = "angular"
+    style = "plain"
+    foreground = "#f11653"
+    background = "transparent"
+    template = "{{ if .Full }} {{ end }}"
+
+  [[blocks.segments]]
+    type = "php"
+    style = "plain"
+    foreground = "#aeb2d5"
+    background = "transparent"
+    template = " "
+
+  [[blocks.segments]]
+    type = "react"
+    style = "plain"
+    foreground = "#81a1c1"
+    template = "{{ if .Full }} {{ end }}"
+
+  [[blocks.segments]]
+    type = 'node'
+    style = 'plain'
+    foreground = 'green'
+    background = 'transparent'
+    template = '{{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ else }} {{ end }}'
+
+    [blocks.segments.properties]
+      fetch_package_manager = true
+      display_mode = 'files'
+      home_enabled = false
+      fetch_version = false
+      yarn_icon = '<purple></>'
+      npm_icon = '<#cb3837></> '
+
+  [[blocks.segments]]
+    type = 'go'
+    style = 'plain'
+    foreground = 'p:blue'
+    background = 'transparent'
+    template = ' '
+
+    [blocks.segments.properties]
+      fetch_version = false
+
+  [[blocks.segments]]
+    type = 'python'
+    style = 'plain'
+    foreground = 'p:yellow'
+    background = 'transparent'
+    template = ' '
+
+    [blocks.segments.properties]
+      display_mode = 'files'
+      fetch_version = false
+      fetch_virtual_env = false
+
+  [[blocks.segments]]
+    type = 'shell'
+    style = 'plain'
+    foreground = 'white'
+    background = 'transparent'
+    template = 'in <p:blue><b>{{ .Name }}</b></> '
+
+  [[blocks.segments]]
+    type = 'time'
+    style = 'plain'
+    foreground = 'p:white'
+    background = 'transparent'
+    template = 'at <p:blue><b>{{ .CurrentDate | date "15:04:05" }}</b></>'
+
+  [[blocks.segments]]
+    type = 'executiontime'
+    style = 'plain'
+    foreground = 'amber'
+    background = 'transparent'
+    template = ' {{ .FormattedMs }}'
+
+    [blocks.segments.properties]
+      threshold = 5000
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    foreground_templates = [
+      "{{if gt .Code 0}}red{{end}}",
+      "{{if eq .Code 0}}magenta{{end}}",
+    ]
+    background = 'transparent'
+    template = '❯'
+
+[[tooltips]]
+  type = 'aws'  
+  tips = ['aws']
+  style = 'diamond'
+  foreground = 'white'
+  background = 'orange'
+  leading_diamond = ''
+  trailing_diamond = ''
+  template = '  {{ .Profile }}{{ if .Region }}@{{ .Region }}{{ end }} '
+
+  [tooltips.properties]
+    display_default = true
+
+[transient_prompt]
+  foreground_templates = [
+    "{{if gt .Code 0}}red{{end}}",
+    "{{if eq .Code 0}}magenta{{end}}",
+  ]
+  background = 'transparent'
+  template = '❯ '
+
+[secondary_prompt]
+  foreground = 'magenta'
+  background = 'transparent'
+  template = '❯❯ '
+
