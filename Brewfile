@@ -1,6 +1,4 @@
 tap "1password/tap"
-tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
 tap "homebrew/services"
 tap "jandedobbeleer/oh-my-posh"
 

@@ -46,7 +46,6 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 DOTFILES=$HOME/dotfiles
 
 # Aliases
-source "$DOTFILES/path.sh"
 source "$DOTFILES/aliases.sh"
 
 # Prompt
