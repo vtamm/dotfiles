@@ -1,3 +1,9 @@
+export PATH=/opt/homebrew/bin:${PATH+:$PATH}
+export PATH=/usr/local/bin:$PATH
+export PATH=/Users/vtamm/.lando/bin:$PATH
+export XDG_CONFIG_HOME="$HOME/.config"
+
+
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
@@ -48,9 +54,6 @@ DOTFILES=$HOME/dotfiles
 # Aliases
 source "$DOTFILES/aliases.sh"
 
-# Prompt
-eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/zen.toml)"
-
 # You may need to manually set your language environment
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -68,3 +71,8 @@ eval "$(zoxide init zsh)"
 
 # Lando
 export PATH="/Users/vtamm/.lando/bin${PATH+:$PATH}"; #landopath
+export PATH="/usr/local/bin${PATH+:$PATH}"; #landopath
+
+# Prompt
+eval "$(starship init zsh)"
+

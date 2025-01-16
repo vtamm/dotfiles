@@ -1,0 +1,10 @@
+customCommands:
+  - key: '<c-x>'
+    context: 'localBranches'
+    prompts:
+      - type: 'input'
+        title: 'Version number to set as commit message and tag?'
+        key: 'Version'
+        initialValue: ''
+    command: "git commit -m '{{.Form.Version}}' && git tag -m '' {{.Form.Version}} && git push --atomic origin {{.CheckedOutBranch.Name}} refs/tags/{{.Form.Version}}"
+    loadingText: 'Pushing'

@@ -1,8 +1,16 @@
-#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
-
-version = 2
-final_space = true
 console_title_template = 'in {{ .Folder }}'
+version = 3
+final_space = true
+
+[secondary_prompt]
+  template = '❯❯ '
+  foreground = 'magenta'
+  background = 'transparent'
+
+[transient_prompt]
+  template = '❯ '
+  background = 'transparent'
+  foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}magenta{{end}}']
 
 [[blocks]]
   type = 'prompt'
@@ -10,24 +18,26 @@ console_title_template = 'in {{ .Folder }}'
   newline = true
 
   [[blocks.segments]]
+    template = '{{ .Path }}'
+    foreground = 'blue'
+    background = 'transparent'
     type = 'path'
     style = 'plain'
-    background = 'transparent'
-    foreground = 'blue'
-    template = '{{ .Path }}'
 
     [blocks.segments.properties]
+      cache_duration = 'none'
       style = 'full'
 
   [[blocks.segments]]
-    type = 'git'
-    style = 'plain'
+    template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>'
     foreground = 'p:grey'
     background = 'transparent'
-    template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>'
+    type = 'git'
+    style = 'plain'
 
     [blocks.segments.properties]
       branch_icon = ''
+      cache_duration = 'none'
       commit_icon = '@'
       fetch_status = true
 
@@ -35,84 +45,103 @@ console_title_template = 'in {{ .Folder }}'
   type = 'rprompt'
 
   [[blocks.segments]]
-    type = "angular"
-    style = "plain"
-    foreground = "#f11653"
-    background = "transparent"
-    template = "{{ if .Full }} {{ end }}"
-
-  [[blocks.segments]]
-    type = "php"
-    style = "plain"
-    foreground = "#aeb2d5"
-    background = "transparent"
-    template = " "
-
-  [[blocks.segments]]
-    type = "react"
-    style = "plain"
-    foreground = "#81a1c1"
-    template = "{{ if .Full }} {{ end }}"
-
-  [[blocks.segments]]
-    type = 'node'
+    template = '{{ if .Full }} {{ end }}'
+    foreground = '#f11653'
+    background = 'transparent'
+    type = 'angular'
     style = 'plain'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+
+  [[blocks.segments]]
+    template = ' '
+    foreground = '#aeb2d5'
+    background = 'transparent'
+    type = 'php'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+
+  [[blocks.segments]]
+    template = '{{ if .Full }} {{ end }}'
+    foreground = '#81a1c1'
+    type = 'react'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+
+  [[blocks.segments]]
+    template = '{{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ else }} {{ end }}'
     foreground = 'green'
     background = 'transparent'
-    template = '{{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ else }} {{ end }}'
+    type = 'node'
+    style = 'plain'
 
     [blocks.segments.properties]
-      fetch_package_manager = true
+      cache_duration = 'none'
       display_mode = 'files'
-      home_enabled = false
+      fetch_package_manager = true
       fetch_version = false
-      yarn_icon = '<purple></>'
+      home_enabled = false
       npm_icon = '<#cb3837></> '
+      yarn_icon = '<purple></>'
 
   [[blocks.segments]]
-    type = 'go'
-    style = 'plain'
+    template = ' '
     foreground = 'p:blue'
     background = 'transparent'
-    template = ' '
+    type = 'go'
+    style = 'plain'
 
     [blocks.segments.properties]
+      cache_duration = 'none'
       fetch_version = false
 
   [[blocks.segments]]
-    type = 'python'
-    style = 'plain'
+    template = ' '
     foreground = 'p:yellow'
     background = 'transparent'
-    template = ' '
+    type = 'python'
+    style = 'plain'
 
     [blocks.segments.properties]
+      cache_duration = 'none'
       display_mode = 'files'
       fetch_version = false
       fetch_virtual_env = false
 
   [[blocks.segments]]
-    type = 'shell'
-    style = 'plain'
+    template = 'in <p:blue><b>{{ .Name }}</b></> '
     foreground = 'white'
     background = 'transparent'
-    template = 'in <p:blue><b>{{ .Name }}</b></> '
-
-  [[blocks.segments]]
-    type = 'time'
+    type = 'shell'
     style = 'plain'
-    foreground = 'p:white'
-    background = 'transparent'
-    template = 'at <p:blue><b>{{ .CurrentDate | date "15:04:05" }}</b></>'
-
-  [[blocks.segments]]
-    type = 'executiontime'
-    style = 'plain'
-    foreground = 'amber'
-    background = 'transparent'
-    template = ' {{ .FormattedMs }}'
 
     [blocks.segments.properties]
+      cache_duration = 'none'
+
+  [[blocks.segments]]
+    template = 'at <p:blue><b>{{ .CurrentDate | date "15:04:05" }}</b></>'
+    foreground = 'p:white'
+    background = 'transparent'
+    type = 'time'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+
+  [[blocks.segments]]
+    template = ' {{ .FormattedMs }}'
+    foreground = 'amber'
+    background = 'transparent'
+    type = 'executiontime'
+    style = 'plain'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
       threshold = 5000
 
 [[blocks]]
@@ -121,38 +150,24 @@ console_title_template = 'in {{ .Folder }}'
   newline = true
 
   [[blocks.segments]]
+    template = '❯'
+    background = 'transparent'
     type = 'text'
     style = 'plain'
-    foreground_templates = [
-      "{{if gt .Code 0}}red{{end}}",
-      "{{if eq .Code 0}}magenta{{end}}",
-    ]
-    background = 'transparent'
-    template = '❯'
+    foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}magenta{{end}}']
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
 
 [[tooltips]]
-  type = 'aws'  
-  tips = ['aws']
-  style = 'diamond'
-  foreground = 'white'
-  background = 'orange'
   leading_diamond = ''
   trailing_diamond = ''
   template = '  {{ .Profile }}{{ if .Region }}@{{ .Region }}{{ end }} '
+  foreground = 'white'
+  background = 'orange'
+  type = 'aws'
+  style = 'diamond'
+  tips = ['aws']
 
   [tooltips.properties]
     display_default = true
-
-[transient_prompt]
-  foreground_templates = [
-    "{{if gt .Code 0}}red{{end}}",
-    "{{if eq .Code 0}}magenta{{end}}",
-  ]
-  background = 'transparent'
-  template = '❯ '
-
-[secondary_prompt]
-  foreground = 'magenta'
-  background = 'transparent'
-  template = '❯❯ '
-
